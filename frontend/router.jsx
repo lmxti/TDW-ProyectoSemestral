@@ -3,6 +3,7 @@ import Home from "./src/Home";
 import NavBar from "./src/components/NavBar";
 import Productos from "./src/pages/Productos";
 import Login from "./src/pages/Login"
+import Footer from "./src/components/Footer";
 
 const RouterApp = () => {
   return (
@@ -13,6 +14,7 @@ const RouterApp = () => {
         <Route path="/productos" element={<Productos/>} />
         <Route path="/login" element={<Login/>} />
       </Routes>
+      <Footer/>
     </>
   );
 };
