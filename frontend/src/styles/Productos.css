@@ -1,0 +1,52 @@
+
+.product-base{
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    background: radial-gradient(circle, rgba(160, 237, 226, 0.706) 20%, rgba(192, 171, 200, 0.202) 100%);
+}
+
+.product-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 10px;
+}
+
+.banner {
+    grid-row: 1 / 2;
+    grid-column: 1 / 4;
+}
+
+.product{
+    background-color: var(--cian);
+    padding: 1rem;
+}
+
+.product img{
+    height: 300px;
+    width: 300px;
+    padding: 10px;
+    background-color: white;
+    object-fit: scale-down;
+}
+
+.product-name{
+    font-size: 3rem;
+    font-weight: 600;
+    color: white;
+    text-shadow: 2px 2px 0 var(--moradoOscuro);
+    
+}
+
+.product-description{
+    font-size: 2rem;
+}
+
+.product-name,
+.product-description{
+    font-family: var(--fuentePrincipal);
+    margin: 1rem 0;
+    text-align: center;
+    line-height: 1.2;
+}

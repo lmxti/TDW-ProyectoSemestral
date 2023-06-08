@@ -1,0 +1,31 @@
+@import url(../styles/Global.css);
+
+.navbar{
+    background-color: var(--cian);
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 100px;
+    align-items: center;
+    font-family: var(--fuentePrincipal);
+}
+
+.navbar .logo{
+    max-width: 80px;
+}
+
+.navbar ul a{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 00;
+    margin-left: 40px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: .5s;
+}
+
+.navbar ul a:hover{
+    color: var(--verdeElectrico);
+    text-shadow: 2px 2px 2px rgba(12, 205, 36, 0.9);
+}
+

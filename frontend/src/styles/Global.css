@@ -1,0 +1,26 @@
+:root{
+    --fuentePrincipal: 'Geologica', sans-serif;
+    --verdeElectrico: #bfef0d;
+    --moradoOscuro: #250862;
+    --cian: #088395;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box; /* Hack para Box Model **/
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body {
+    font-size: 16px; /* 1rem = 10px */
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3 {
+    padding: 0;
+    margin: 0;
+}
