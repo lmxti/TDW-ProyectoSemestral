@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./src/Home";
 import NavBar from "./src/components/NavBar";
 import Productos from "./src/pages/Productos";
-import Login from "./src/pages/Login"
+import Login from "./src/pages/login"
 import Footer from "./src/components/Footer";
 
 const RouterApp = () => {
