@@ -4,19 +4,20 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-// Tabla de "bodegas"
+// Tabla pivote "stock_bodegas" que relaciona las tablas "bodegas" y "bebidas".
 return new class extends Migration
 {
     /**
      * Run the migrations.
      */
-    // Metodo up() que crea la tabla "bodegas" con los campos "id", "nombre" y "timestamps".
     public function up(): void
     {
-        // Metodo create() que utiliza el objeto Blueprint para definir la estructura de la tabla.
-        Schema::create('bodegas', function (Blueprint $table) {
+        Schema::create('stock_bodegas', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('bodega_id')->constrained('bodegas');
+            $table->foreignId('bebida_id')->constrained('bebidas');
             $table->string('nombre');
+            $table->integer('cantidad');
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('bodegas');
+        Schema::dropIfExists('stock_bodegas');
     }
 };

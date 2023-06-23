@@ -35,3 +35,7 @@ Route::prefix('/bodega')->group(function(){
     Route::delete('/delete', 'App\Http\Controllers\BodegaController@deleteBodega');
     Route::get('/viewAll', 'App\Http\Controllers\BodegaController@viewAllBodegas');
 });
+
+Route::prefix('/ingreso')->group(function(){
+    Route::post('/create', 'App\Http\Controllers\IngresoController@createIngreso');
+});
