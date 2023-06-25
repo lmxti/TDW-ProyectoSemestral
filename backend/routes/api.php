@@ -38,4 +38,10 @@ Route::prefix('/bodega')->group(function(){
 
 Route::prefix('/ingreso')->group(function(){
     Route::post('/create', 'App\Http\Controllers\IngresoController@createIngreso');
+    Route::get('/viewAll', 'App\Http\Controllers\IngresoController@viewAllIngreso');
+});
+
+Route::prefix('/traspaso')->group(function(){
+    Route::post('/create', 'App\Http\Controllers\TraspasoController@createTraspaso');
+    Route::get('/viewAll', 'App\Http\Controllers\TraspasoController@viewAllTraspaso');
 });

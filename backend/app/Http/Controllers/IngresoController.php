@@ -96,4 +96,13 @@ class IngresoController extends Controller
             return response()->json(["error"=>$e->getMessage()], Response::HTTP_BAD_REQUEST);
         }
     }
+
+    public function viewAllIngreso(Request $request){
+        try{
+            $ingreso = Ingreso::all();
+            return response()->json(["ingreso"=>$ingreso], Response::HTTP_OK);
+        }catch (Exception $e) {
+            return response()->json(["error"=>$e->getMessage()], Response::HTTP_BAD_REQUEST);
+        }
+    }
 }
