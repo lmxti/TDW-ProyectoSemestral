@@ -1,0 +1,55 @@
+@import url(./Global.css);
+
+.management-base {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.management-base h1 {
+    text-transform: uppercase;
+    font-family: var(--fuentePrincipal);
+    padding: 20px;
+}
+
+.management-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 30px;
+}
+
+
+.management-item img {
+    height: 100px;
+    width: 100px;
+}
+
+.management-item {
+    background-color: var(--cian);
+    height: 200px;
+    width: 300px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+    transition: background-color 0.5s ease;
+}
+
+.management-item:hover{
+    background-color: hsl(190, 60%, 45%);
+}
+
+
+.management-item h1 {
+    font-family: var(--fuentePrincipal);
+    text-transform: uppercase;
+    color: white;
+}
+
+.management-item:hover h1 {
+    color: var(--verdeElectrico);
+    text-shadow: 2px 2px 2px rgba(46, 139, 57, 0.9);
+}

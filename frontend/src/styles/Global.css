@@ -1,8 +1,10 @@
 :root {
     --fuentePrincipal: 'Geologica', sans-serif;
     --verdeElectrico: #bfef0d;
+    --amarilloOscuro: #f5bd04;
     --moradoOscuro: #250862;
     --cian: #088395;
+    --cianClarito: #0b7485;
 }
 
 html {
@@ -30,6 +32,10 @@ h2,
 h3 {
     padding: 0;
     margin: 0;
+}
+
+a:hover{
+    text-decoration: none;
 }
 
 body::-webkit-scrollbar {

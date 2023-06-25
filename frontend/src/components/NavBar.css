@@ -1,31 +1,68 @@
 @import url(../styles/Global.css);
 
-.navbar{
+nav{
     background-color: var(--cian);
     display: flex;
     justify-content: space-between;
-    padding: 20px 100px;
     align-items: center;
+    padding: 20px 100px;
     font-family: var(--fuentePrincipal);
-}
-
-.navbar .logo{
-    max-width: 80px;
-}
-
-.navbar ul a{
-    text-decoration: none;
-    color: #ffffff;
-    font-size: 20px;
-    font-weight: 00;
-    margin-left: 40px;
-    text-decoration: none;
     text-transform: uppercase;
-    transition: .5s;
 }
 
-.navbar ul a:hover{
+/* Logo de la barra de navegacion */
+a > img {
+    max-width: 100px;
+}
+
+
+.contenedor-enlaces{
+    display: flex;
+}
+
+.loginIcon > img {
+    max-width: 50px;
+    transition:  all .3s ease 0s;
+}
+
+.loginIcon > img:hover{
+    transform: scale(1.2);
+}
+
+ul > a{
+    font-size: 20px;
+    width: 200px;
+    padding: 20px 0;
+    text-align: center;
+    color: #ffffff;
+    transition:  all .3s ease 0s;
+}
+
+ul > a:hover {
+    background-color: var(--cianClarito);
     color: var(--verdeElectrico);
     text-shadow: 2px 2px 2px rgba(12, 205, 36, 0.9);
 }
 
+.menu{
+    position: relative;
+}
+
+.submenu{
+    display: none;
+    position: absolute;
+    margin-top: 20px;
+}
+
+.submenu a{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--cian);
+}
+
+.submenu > a:hover {
+    background-color: #008849;
+}
+.menu:hover > .submenu{
+    display: block;
+}
