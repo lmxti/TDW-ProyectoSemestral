@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "../styles/Login.css";
-import LoginImage from "../img/personas.jpg";
+import LoginImage from "../assets/login.png";
 
 export default function Login() {
   const [email, setEmail] = useState('');

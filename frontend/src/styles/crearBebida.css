@@ -1,11 +1,13 @@
-.login-container {
+@import url(./Global.css);
+
+
+.crear-container{
     display: flex;
-    /* background-color: red; */
     width: fit-content;
     margin: 30px auto;
     padding: 10px;
-    border-radius: 25px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 25px;
 }
 
 .box-content {
@@ -13,35 +15,32 @@
     height: 450px;
 }
 
-.login-content {
+.crear-content{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #2d9ab5;
+    background-color: var(--cian);
     border-radius: 25px 0 0 25px;
 }
 
-.login-content h1 {
+.crear-content h1{
     text-align: center;
-    font-size: 5.5rem;
+    font-size: 2.5rem;
     color: var(--verdeElectrico);
     text-shadow: 2px 2px 2px rgba(46, 139, 57, 0.9);
     margin-bottom: 1.5rem;
     font-family: var(--fuentePrincipal);
 }
 
-.login-form {
+.crear-form{
     display: grid;
     row-gap: 1rem;
     width: 300px;
-    
-    padding: 10px;   
+    padding: 10px;
 }
 
-.login-form input {
-    width: 100%;
-    height: 60px;
+.crear-form > input {
     border: none;
     outline: none;
     padding: 10px;
@@ -51,7 +50,7 @@
     font-family: var(--fuentePrincipal);
 }
 
-input.login-button{
+input.crear-button{
     background-color: yellow;
     color: black;
     font-size: 1.2em;
@@ -59,17 +58,21 @@ input.login-button{
     cursor: pointer;
 }
 
-.login-form input:focus {
-    border: 2px solid var(--verdeElectrico);
+.box-content > section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    border-radius: 0 25px 25px 0;
 }
 
-.login-image{
+.crear-image{
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.login-image img {
+.crear-image img{
     width: 80%;
     height: 100%;
     object-fit: contain;
