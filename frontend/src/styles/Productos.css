@@ -44,7 +44,8 @@
 }
 
 .product-name,
-.product-description{
+.product-description,
+.product-tamano{
     font-family: var(--fuentePrincipal);
     margin: 1rem 0;
     text-align: center;

@@ -1,17 +1,16 @@
 ### 1. Instalaciones requeridas:
 
 - PHP 8:
-    `apt-get update`
-    `apt-get install --no-install-recommends php8.1`
-    `apt-get install -y php8.1-cli php8.1-common php8.1-mysql php8.1-zip php8.1-gd php8.1-mbstring php8.1-curl php8.1-xml php8.1-bcmath`
+    `apt-get update` <br>
+    `apt-get install --no-install-recommends php8.1` <br>
+    `apt-get install -y php8.1-cli php8.1-common php8.1-mysql php8.1-zip php8.1-gd php8.1-mbstring php8.1-curl php8.1-xml php8.1-bcmath` <br>
 
-    `php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"`
-    `php -r "if (hash_file('sha384', 'composer-setup.php') === '55ce33d7678c5a611085589f1f3ddf8b3c52d662cd01d4ba75c0ee0459970c2200a51f492d557530c71c15d8dba01eae') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"`
-    `php composer-setup.php`
-    `php -r "unlink('composer-setup.php');"`
+    `php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"` <br>
+    `php -r "if (hash_file('sha384', 'composer-setup.php') === '55ce33d7678c5a611085589f1f3ddf8b3c52d662cd01d4ba75c0ee0459970c2200a51f492d557530c71c15d8dba01eae') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"` <br>
 
-- [Composer]: (https://getcomposer.org/download/)
-
+    `php composer-setup.php` <br>
+    `php -r "unlink('composer-setup.php');"`<br>
+- Composer: (https://getcomposer.org/download/) <br>
 - MySQL: `apt-get install php-mysql`
 
 
@@ -35,6 +34,8 @@ La clave generada se utiliza para cifrar datos sensibles de la aplicacion, como 
 
 
 ### 4.1 Configuracion en DBeaver
+
+- En Conexion Settings, poner como nombre de usuario el que se creo por la consola de mysql y la contrasena respectiva.
 
 - En la pestana 'General' completar con el nombre de usuario y contrasena creados en el paso anterior.
 - En la pestana 'Driver Properties' cambiar `allowPublicKeyRetrieval` con el valor `TRUE`.

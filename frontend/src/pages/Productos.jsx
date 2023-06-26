@@ -1,70 +1,52 @@
+import { useState, useEffect } from "react";
 import "../styles/Productos.css";
-import lata1 from "../assets/lata1.png";
-import lata2 from "../assets/lata2.png";
-import lata3 from "../assets/lata3.png";
-import lata4 from "../assets/lata4.png";
-import lata5 from "../assets/lata5.png";
-import lata6 from "../assets/lata6.png";
+
+// Dependencias importadas
+import axios from "axios";
+
+// Assets importados
 import banner from "../assets/banner1.png";
+import lata1 from "../assets/lata1.png";
+
+
+
 
 export default function Productos() {
+  const [productos, setProductos] = useState([]);
+  
+  useEffect(() => {
+    getProductos();
+  }, []);
+
+  const getProductos = async () => {
+    const response = await axios.get('http://127.0.0.1:8000/api/bebida/viewAll');
+    setProductos(response.data.bebidas);
+  };
+
+  const showProductos = () => {
+    return productos.map((producto) => (<>
+
+      <div className="product">
+        <img src={lata1} alt="" />
+        <div className="product-information">
+        <p className="product-name" key={producto.id}> {producto.nombre}</p>
+        <p className="product-description" key={producto.id}> Sabor: {producto.sabor}</p>
+        <p className="product-tamano" key={producto.id}> Tamano: {producto.tamano}</p>
+        </div>
+      </div>
+
+    </>
+    ))
+  }
+
   return (
     <>
       <section className="product-base">
         <div className="product-container">
-
           <div className="banner">
             <img src={banner} alt="" />
           </div>
-
-          <div className="product">
-            <img src={lata1} alt="" />
-            <div className="product-information">
-              <p className="product-name">Bebida</p>
-              <p className="product-description">Bebida energetica</p>
-            </div>
-          </div>
-
-          <div className="product">
-            <img src={lata2} alt="" />
-            <div className="product-information">
-              <p className="product-name">Bebida</p>
-              <p className="product-description">Bebida energetica</p>
-            </div>
-          </div>
-
-          <div className="product">
-            <img src={lata3} alt="" />
-            <div className="product-information">
-              <p className="product-name">Bebida</p>
-              <p className="product-description">Bebida energetica</p>
-            </div>
-          </div>
-
-          <div className="product">
-            <img src={lata4} alt="" />
-            <div className="product-information">
-              <p className="product-name">Bebida</p>
-              <p className="product-description">Bebida energetica</p>
-            </div>
-          </div>
-
-          <div className="product">
-            <img src={lata5} alt="" />
-            <div className="product-information">
-              <p className="product-name">Bebida</p>
-              <p className="product-description">Bebida energetica</p>
-            </div>
-          </div>
-
-          <div className="product">
-            <img src={lata6} alt="" />
-            <div className="product-information">
-              <p className="product-name">Bebida</p>
-              <p className="product-description">Bebida energetica</p>
-            </div>
-          </div>
-          
+          {showProductos()}
         </div>
       </section>
     </>
