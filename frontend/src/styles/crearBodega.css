@@ -59,3 +59,11 @@
     border-radius: 0 25px 25px 0;
 }
 
+input.crearBodega-button{
+    background-color: yellow;
+    color: black;
+    font-size: 1.2em;
+    border-radius: 0.8em;
+    cursor: pointer;
+}
+

@@ -11,7 +11,7 @@ const crearBodega = () => {
           <form className="crearBodega-form">
             <h1>Crear una bodega</h1>
             <input type="text" placeholder="Nombre" />
-            <input type="submit" value="Crear" />
+            <input type="submit" value="Crear" className="crearBodega-button" />
           </form>
         </div>
 
