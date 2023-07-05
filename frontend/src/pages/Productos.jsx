@@ -8,7 +8,7 @@ import axios from "axios";
 import banner from "../assets/banner1.png";
 import lata1 from "../assets/lata1.png";
 
-
+ 
 
 
 export default function Productos() {

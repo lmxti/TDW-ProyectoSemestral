@@ -3,8 +3,8 @@
     --verdeElectrico: #bfef0d;
     --amarilloOscuro: #f5bd04;
     --moradoOscuro: #250862;
-    --cian: #088395;
-    --cianClarito: #0b7485;
+    --cianClarito: #088395;
+    --cian: #0b7485;
 }
 
 html {
@@ -21,7 +21,7 @@ html {
 
 body {
     font-size: 16px;
-    /* 1rem = 10px */
+    /*Esto equivale a 1rem = 10px */
     margin: 0;
     padding: 0;
     overflow-y: scroll;

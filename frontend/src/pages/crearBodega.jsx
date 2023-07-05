@@ -1,6 +1,8 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import "../styles/crearBodega.css";	
 import Bodega from "../assets/personas.jpg";
+
+import axios from "axios";
 
 const crearBodega = () => {
   return (

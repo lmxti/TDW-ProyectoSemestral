@@ -20,8 +20,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: var(--cian);
     border-radius: 25px 0 0 25px;
+    background-color: #2d9ab5;
 }
 
 .crear-content h1{

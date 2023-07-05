@@ -1,0 +1,87 @@
+@import url(./Global.css);
+
+.tabla-container {
+    margin: 50px auto;
+    width: 800px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.tabla-content {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.tabla-content th,
+.tabla-content td {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.tabla-content th {
+    background-color: var(--cian);
+    color: white;
+    font-weight: bold;
+}
+
+.tabla-content td {
+    text-align: center;
+}
+
+
+/*----------------- MODAL ----------------- */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    display: grid;
+    row-gap: 1rem;
+    width: 400px;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.modal-content > input{
+    outline: none;
+    padding: 10px;
+    font-size: 1em;
+    padding: 10px;
+    border-radius: 10px;
+    font-family: var(--fuentePrincipal);
+}
+
+.btn-save{
+    background-color: var(--cianClarito);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1em;
+    font-family: var(--fuentePrincipal);
+    cursor: pointer;
+}
+
+.btn-save:hover{
+    background-color: var(--cian);
+}
+
+.btn-close{
+    color: black;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1em;
+    font-family: var(--fuentePrincipal);
+    cursor: pointer;
+}

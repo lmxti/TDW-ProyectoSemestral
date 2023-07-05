@@ -6,6 +6,7 @@ import Bodegas from "./src/pages/Bodegas";
 import Login from "./src/pages/login"
 import Manage from "./src/pages/manage";
 import CrearBebida from "./src/pages/crearBebida"
+import GestionarBebidas from "./src/pages/gestionarBebidas"
 import CrearBodega from "./src/pages/crearBodega"
 import Footer from "./src/components/Footer";
 
@@ -19,6 +20,7 @@ const RouterApp = () => {
         <Route path="/login" element={<Login/>} />
         <Route path="/manage" element={<Manage/>} />
         <Route path="/crear_bebida" element={<CrearBebida/>}/>
+        <Route path="/gestion_de_bebidas" element={<GestionarBebidas/>}/>
         <Route path="/crear_bodega" element={<CrearBodega/>}/>
         <Route path="/bodegas" element={<Bodegas/>} />
       </Routes>
