@@ -18,14 +18,12 @@ const NavBar = () => {
         <Link to={"/"}>Inicio</Link>
         <Link to={"/productos"} className="menu">Bebidas
           <ul className="submenu">
-            <Link to={"/crear_bebida"}>Crear</Link>
             <Link to={"/gestion_de_bebidas"}>Gestionar</Link>
           </ul>
         </Link>
 
         <Link to={"/bodegas"} className="menu">Bodegas
         <ul className="submenu">
-            <Link to={"/crear_bodega"}>Crear</Link>
             <Link to={"/gestion_de_bodegas"}>Gestionar</Link>
           </ul>
         </Link>

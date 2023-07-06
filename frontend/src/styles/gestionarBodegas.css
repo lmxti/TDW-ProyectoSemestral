@@ -1,5 +1,6 @@
 @import url(./Global.css);
 
+/* ------------------ Contenedor principal de "tabla" ------------------ */
 .tabla-bodegas--container{
     margin: 50px auto;
     width: 800px;
@@ -8,7 +9,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     background-color: rgb(204, 215, 221);
 }
-
+/* Titulo de la tabla */
 .tabla-bodegas--container > h1 {
     font-family: var(--fuentePrincipal);
     color: black;
@@ -16,26 +17,118 @@
     font-size: 2em;
     margin-bottom: 20px;
 }
-
+/* Cotenido de la tabla */
 .tabla-bodegas--content{
     border-collapse: collapse;
     width: 100%;
 }
-
-
+/* Cabecera y cuerpo de la tabla */
 .tabla-bodegas--content th,
 .tabla-bodegas--content td{
     border: 1px solid black;
     padding: 10px;
 }
-
+/* Cabecera de la tabla */
 .tabla-bodegas--content th{
     background-color: var(--cian);
     color: white;
     font-weight: bold;
 }
-
+/* Cuerpo de la tabla */
 .tabla-bodegas--content td{
     text-align: center;
     background-color: white;
+}
+
+/* ---------------- Contenedor de botones bajo tabla ---------------- */
+.btn-bodega{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* ------------------ Boton "Crear bodega" ------------------ */
+.btn-bodega > button{
+    background-color: var(--cian);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1em;
+    font-family: var(--fuentePrincipal);
+    cursor: pointer;
+    margin: 0 10px;
+}
+.btn-bodega > button:hover{
+    background-color: var(--cianClarito);
+    transition: all 0.3s ease;
+}
+/* Color de texto de <Link> del boton */
+.btn-bodega > button > a{
+    color: white;
+}
+
+/*----------------- Modal de edicion ----------------- */
+.modal-bodega {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-bodega--content {
+    background-color: rgb(204, 215, 221);
+    display: grid;
+    row-gap: 1rem;
+    width: 400px;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.modal-bodega--content h2{
+    font-family: var(--fuentePrincipal);
+    color: black;
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.modal-bodega--content > input{
+    outline: none;
+    padding: 10px;
+    font-size: 1em;
+    padding: 10px;
+    border-radius: 10px;
+    font-family: var(--fuentePrincipal);
+}
+
+
+/* ------------------ Botones del modal ------------------ */
+.btn-save-bodega{
+    background-color: var(--cianClarito);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1em;
+    font-family: var(--fuentePrincipal);
+    cursor: pointer;
+}
+.btn-save-bodega:hover{
+    background-color: var(--cian);
+}
+.btn-close-bodega{
+    color: black;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1em;
+    font-family: var(--fuentePrincipal);
+    cursor: pointer;
 }
