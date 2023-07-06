@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 
 // Dependencias importadas
 import axios from "axios";
+import "../styles/Bodegas.css"
+import banner from "../assets/banner2.jpeg";
+import bodegaImagen from "../assets/bodegaImagen.jpeg"
 
 const Bodegas = () => {
   const [bodegas, setBodegas] = useState([]);
@@ -17,15 +20,23 @@ const Bodegas = () => {
 
   const showBodegas = () => {
     return bodegas.map((bodega) => 
-    <>
-        <p key={bodega.id}>{bodega.nombre}</p>
-    </>
+    <div className="bodega">
+      <img src={bodegaImagen} alt="xd" />
+        <p className="bodega-name" key={bodega.id}>{bodega.nombre}</p>
+    </div>
     );
   };
 
   return (
   <>
-    {showBodegas()}
+    <section className="bodegas-base">
+      <div className="bodegas-container">
+        <div className="banner-bodega">
+          <img src={banner} alt="" />
+        </div>
+      {showBodegas()}
+      </div>
+    </section>
   </>
   )
 };

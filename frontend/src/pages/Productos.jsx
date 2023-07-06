@@ -25,7 +25,6 @@ export default function Productos() {
 
   const showProductos = () => {
     return productos.map((producto) => (<>
-
       <div className="product">
         <img src={lata1} alt="" />
         <div className="product-information">

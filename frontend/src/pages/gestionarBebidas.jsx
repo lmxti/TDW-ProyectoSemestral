@@ -53,8 +53,7 @@ const gestionarBebidas = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-
-
+    // Intento de envio de solicitud de edicion de bebida
     try{
       const response = await axios.put('http://127.0.0.1:8000/api/bebida/update', bebidaSeleccionada);
       console.log(bebidaSeleccionada); 
@@ -65,19 +64,19 @@ const gestionarBebidas = () => {
           text: 'Se ha editado la bebida',
           confirmButtonText: 'Ok'
         });
-      } else{
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'Algo salió mal!',
-          confirmButtonText: 'Ok'
-        });
       }
-    } catch {
+    } catch(error) {
+      console.log(error.response.data.message);
+
+      let errorMessage = "";
+      Object.values(error.response.data.errors).forEach((values) => {
+        errorMessage += values + "<br>" ;
+      });
+
       Swal.fire({
         icon: 'error',
-        title: 'Oops...',
-        text: 'Algo salió mal!',
+        title: error.response.data.message,
+        html: errorMessage,
         confirmButtonText: 'Ok'
       });
     }
@@ -93,6 +92,7 @@ const gestionarBebidas = () => {
   return (
     <>
       <div className="tabla-container">
+        <h1>Gestion de bebidas</h1>
         <table className="tabla-content">
           <tr>
             <th>Nombre</th>
@@ -124,7 +124,7 @@ const gestionarBebidas = () => {
               onChange={ (e) => setBebidaSeleccionada({...bebidaSeleccionada, sabor: e.target.value})}
             />
 
-            <label>Tamano</label>
+            <label>Tamaño</label>
             <input
               type="text"
               name="tamano"

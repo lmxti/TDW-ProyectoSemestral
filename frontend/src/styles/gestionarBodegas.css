@@ -1,0 +1,41 @@
+@import url(./Global.css);
+
+.tabla-bodegas--container{
+    margin: 50px auto;
+    width: 800px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    background-color: rgb(204, 215, 221);
+}
+
+.tabla-bodegas--container > h1 {
+    font-family: var(--fuentePrincipal);
+    color: black;
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.tabla-bodegas--content{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+
+.tabla-bodegas--content th,
+.tabla-bodegas--content td{
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.tabla-bodegas--content th{
+    background-color: var(--cian);
+    color: white;
+    font-weight: bold;
+}
+
+.tabla-bodegas--content td{
+    text-align: center;
+    background-color: white;
+}

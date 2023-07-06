@@ -6,6 +6,15 @@
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    background-color: rgb(204, 215, 221);
+}
+
+.tabla-container > h1 {
+    font-family: var(--fuentePrincipal);
+    color: black;
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
 }
 
 .tabla-content {
@@ -27,6 +36,7 @@
 
 .tabla-content td {
     text-align: center;
+    background-color: white;
 }
 
 
@@ -44,12 +54,20 @@
 }
 
 .modal-content {
-    background-color: white;
+    background-color: rgb(204, 215, 221);
     display: grid;
     row-gap: 1rem;
     width: 400px;
     padding: 30px;
     border-radius: 15px;
+}
+
+.modal-content h2{
+    font-family: var(--fuentePrincipal);
+    color: black;
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
 }
 
 .modal-content > input{
