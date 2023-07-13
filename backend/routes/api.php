@@ -3,6 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BebidaController;
+use App\Http\Controllers\BodegaController;
+use App\Http\Controllers\IngresoController;
+use App\Http\Controllers\TraspasoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,9 +42,11 @@ Route::prefix('/bodega')->group(function(){
 Route::prefix('/ingreso')->group(function(){
     Route::post('/create', 'App\Http\Controllers\IngresoController@createIngreso');
     Route::get('/viewAll', 'App\Http\Controllers\IngresoController@viewAllIngreso');
+    Route::delete('/delete', 'App\Http\Controllers\IngresoController@deleteIngreso');
 });
 
 Route::prefix('/traspaso')->group(function(){
     Route::post('/create', 'App\Http\Controllers\TraspasoController@createTraspaso');
     Route::get('/viewAll', 'App\Http\Controllers\TraspasoController@viewAllTraspaso');
+    Route::delete('/delete', 'App\Http\Controllers\TraspasoController@deleteTraspaso');
 });

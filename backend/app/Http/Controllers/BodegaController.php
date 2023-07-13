@@ -14,7 +14,7 @@ use Exception;
 class BodegaController extends Controller
 {
     // Metodo para crear un registro de "Bodega".
-    public function createBodega(Request $request){
+    public function createBodega(BodegaRequest $request){
         try {
             // Creacion de nuevo registro de "Bodega".
             $bodega = new Bodega();
@@ -31,7 +31,7 @@ class BodegaController extends Controller
     }
 
     // Metodo para ver un registro de "Bodega" utilizando el id de la bodega.
-    public function viewBodega(Request $request){
+    public function viewBodega(BodegaRequest $request){
         try {
             // Busqueda del registro de "Bodega" en la Base de datos utilizando el valor del campo "id" y asignacion en $bodega.
             $bodega = Bodega::find($request->id);
@@ -44,7 +44,7 @@ class BodegaController extends Controller
     }
 
     // Metodo para actualizar valores de un registro de "Bodega" utilizando el id de la bodega.
-    public function updateBodega(Request $request){
+    public function updateBodega(BodegaRequest $request){
         try {
             // Busqueda del registro de "Bodega" en la Base de datos utilizando el valor del campo "id" y asignacion en $bodega.
             $bodega = Bodega::find($request->id);
@@ -61,7 +61,7 @@ class BodegaController extends Controller
     }
 
     // Metodo para eliminar un registro de "Bodega" utilizando el id de la bodega.
-    public function deleteBodega(Request $request){
+    public function deleteBodega(BodegaRequest $request){
         try {
             // Busqueda del registro de "Bodega" en la Base de datos utilizando el valor del campo "id" y asignacion en $bodega.
             $bodega = Bodega::find($request->id);
@@ -76,7 +76,7 @@ class BodegaController extends Controller
     }
 
     // Metodo para ver todos los registros de "Bodega".
-    public function viewAllBodegas(Request $request){
+    public function viewAllBodegas(BodegaRequest $request){
         try {
             // Busqueda de todos los registros de "Bodega" en la Base de datos y asignacion en $bodegas.
             $bodegas = Bodega::all();

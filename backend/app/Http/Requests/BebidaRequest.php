@@ -34,7 +34,7 @@ class BebidaRequest extends FormRequest
             return [
                 'id' => 'required|integer',
                 'nombre' => 'required|string',
-                'sabor' => 'required|string',
+                'sabor' => 'required|alpha',
                 'tamano' => 'required|string',
             ];
         }elseif ($this->isMethod('delete')){

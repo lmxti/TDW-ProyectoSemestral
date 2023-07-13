@@ -27,6 +27,9 @@ const NavBar = () => {
             <Link to={"/gestion_de_bodegas"}>Gestionar</Link>
           </ul>
         </Link>
+
+        <Link to={"/crear_traspaso"} className="menu">Traspaso
+        </Link>
       </ul>
 
       <Link  title="Iniciar sesion" to={"/login"} className="loginIcon">

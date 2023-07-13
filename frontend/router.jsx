@@ -11,6 +11,8 @@ import Bodegas from "./src/pages/Bodegas";
 import CrearBodega from "./src/pages/crearBodega"
 import GestionarBodegas from "./src/pages/gestionarBodegas"
 
+import CrearTraspaso from "./src/pages/crearTraspaso"
+
 import Footer from "./src/components/Footer";
 
 const RouterApp = () => {
@@ -26,6 +28,7 @@ const RouterApp = () => {
         <Route path="/bodegas" element={<Bodegas/>} />
         <Route path="/crear_bodega" element={<CrearBodega/>}/>
         <Route path="/gestion_de_bodegas" element={<GestionarBodegas/>}/>
+        <Route path="/crear_traspaso" element={<CrearTraspaso/>}/>
 
       </Routes>
       <Footer/>

@@ -8,7 +8,7 @@ use App\Models\Bodega;
 use App\Models\Bebida;
 
 use Illuminate\Http\Request;
-// use App\Http\Requests\IngresoRequest;
+use App\Http\Requests\IngresoRequest;
 use Illuminate\Http\Response;
 use Exception;
 
@@ -26,7 +26,7 @@ class IngresoController extends Controller
         4. Registro de cada bebida del cargamento en la tabla pivote "detalle_ingreso".
     */
     
-    public function createIngreso(Request $request){
+    public function createIngreso(IngresoRequest $request){
         try {
             // Obtencion de valores de "bodega_id" y del "cargamento" desde el cuerpo de la solicitud HTTP.
             $bodegaId = $request->bodega_id;
@@ -50,7 +50,7 @@ class IngresoController extends Controller
                     ->where("bodega_id", $bodegaId)
                     ->where("bebida_id", $bebida_id)
                     ->first();
-                
+
                 // En caso de que la bebida ya exista en la bodega, se actualiza la cantidad sumando la cantidad previa mas la nueva.
                 if ($stockBodega) {
                     // Acceso a la tabla de "stock_bodegas".
@@ -97,9 +97,20 @@ class IngresoController extends Controller
         }
     }
 
-    public function viewAllIngreso(Request $request){
+    public function viewAllIngreso(IngresoRequest $request){
         try{
             $ingreso = Ingreso::all();
+            return response()->json(["ingreso"=>$ingreso], Response::HTTP_OK);
+        }catch (Exception $e) {
+            return response()->json(["error"=>$e->getMessage()], Response::HTTP_BAD_REQUEST);
+        }
+    }
+
+    public function deleteIngreso(IngresoRequest $request){
+        try{
+            $id = $request->id;
+            $ingreso = Ingreso::find($id);
+            $ingreso->delete();
             return response()->json(["ingreso"=>$ingreso], Response::HTTP_OK);
         }catch (Exception $e) {
             return response()->json(["error"=>$e->getMessage()], Response::HTTP_BAD_REQUEST);

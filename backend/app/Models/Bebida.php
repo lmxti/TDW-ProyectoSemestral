@@ -41,4 +41,8 @@ class Bebida extends Model
     public function ingresos(){
         return $this->belongsToMany(Ingreso::class, 'detalle_ingresos', 'bebida_id', 'ingreso_id', 'nombre')->withPivot('cantidad');
     }
+
+    public function traspasos(){
+        return $this->belongsToMany(Traspaso::class, 'detalle_traspasos', 'bebida_id', 'traspaso_id', 'nombre')->withPivot('cantidad');
+    }
 }

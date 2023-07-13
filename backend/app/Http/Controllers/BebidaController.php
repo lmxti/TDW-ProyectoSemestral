@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\BebidaRequest;
 use Illuminate\Http\Response;
 use Exception;
+use Illuminate\Support\Facades\DB;
 
 // Controlador para el modelo 'Bebida', que se utiliza para manejar las solicitudes HTTP y ejecutar la logica correspondiente.
 class BebidaController extends Controller
@@ -16,7 +17,7 @@ class BebidaController extends Controller
     // Metodo para crear un registro de "Bebida".
     public function createBebida(BebidaRequest $request){
         try {
-            // Creacion de nuevo registro de "Bebida". 
+            // Creacion de nuevo registro de "Bebida".
             $bebida = new Bebida();
             // Asignacion de valores a los atributos del modelo.
             $bebida->nombre = $request->nombre;
@@ -67,10 +68,23 @@ class BebidaController extends Controller
     // Metodo para eliminar un registro de "Bebida" utilizando el id de la bebida.
     public function deleteBebida(BebidaRequest $request){
         try {
-            // Busqueda del registro de "Bebida" en la Base de datos utilizando el valor del campo "id" y asignacion en $bebida.
-            $bebida = Bebida::find($request->id);
-            // Eliminacion del registro de la base de datos.
-            $bebida->delete();
+            $bebida = $request->id;
+
+            $hasDetalleIngresos = DB::table('detalle_ingresos')->where('bebida_id', $bebida)->exists();
+            $hasDetalleTraspaso = DB::table('detalle_traspasos')->where('bebida_id', $bebida)->exists();
+            $hasStockBodegas = DB::table('stock_bodegas')->where('bebida_id', $bebida)->exists();
+
+            if($hasDetalleIngresos){
+                DB::table ('detalle_ingresos')->where('bebida_id', $bebida)->delete();
+            }
+            if($hasDetalleTraspaso){
+                DB::table ('detalle_traspasos')->where('bebida_id', $bebida)->delete();
+            }
+            if($hasStockBodegas){
+                DB::table ('stock_bodegas')->where('bebida_id', $bebida)->delete();
+            }
+
+            Bebida::destroy($bebida);
             // Retorno de respuesta HTTP exitosa.
             return response()->json(["bebida"=>$bebida], Response::HTTP_OK);
         } catch (Exception $e) {
