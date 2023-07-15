@@ -24,7 +24,7 @@ const gestionarBodegas = () => {
     nombre: ""
   });
 
-/*------------------------------ SOLICITUD "GET" PARA OBTENER BODEGAS ------------------------------*/
+  /*------------------------------ SOLICITUD "GET" PARA OBTENER BODEGAS ------------------------------*/
   const getBodegas = async () => {
     const response = await axios.get(
       "http://127.0.0.1:8000/api/bodega/viewAll"
@@ -32,11 +32,11 @@ const gestionarBodegas = () => {
     setBodegas(response.data.bodegas);
   };
 
- /*------------------------------ SOLICITUD "PUT" PARA EDITAR BODEGA ------------------------------*/
- const onSubmit = async (e) => {
+  /*------------------------------ SOLICITUD "PUT" PARA EDITAR BODEGA ------------------------------*/
+  const onSubmit = async (e) => {
     // Evitar que se recargue la pagina al enviar solicitud
     e.preventDefault();
-    try{
+    try {
       // Solicitud "PUT" para editar bodega por los valores de "bodegaSeleccionada"
       const response = await axios.put('http://127.0.0.1:8000/api/bodega/update', bodegaSeleccionada);
       // Notificacion de exito al editar bodega
@@ -51,12 +51,12 @@ const gestionarBodegas = () => {
       setShowModal(false);
       setBodegaSeleccionada(null);
       getBodegas();
-    }catch(error){
+    } catch (error) {
       // Variable para almacenar los mensajes de error
       let errorMessage = "";
       // Recorrer los mensajes de error para almacenarlos en la variable "errorMessage"
       Object.values(error.response.data.errors).forEach((values) => {
-        errorMessage += values + "<br>" ;
+        errorMessage += values + "<br>";
       })
       // Notificacion de error al editar bodega
       Swal.fire({
@@ -67,29 +67,29 @@ const gestionarBodegas = () => {
       });
 
     }
- };
+  };
 
-/*------------------------------ SOLICITUD "DELETE" PARA ELIMINAR BEBIDA -----------------------------*/
+  /*------------------------------ SOLICITUD "DELETE" PARA ELIMINAR BEBIDA -----------------------------*/
   const eliminarBodega = async (id) => {
     try {
       const response = await axios.delete("http://127.0.0.1:8000/api/bodega/delete", { data: { id } });
-        // Notificacion de exito al eliminar bodega
-        if (response.status === 200) {
-            Swal.fire({
-                icon: "success",
-                title: "Bodega eliminada exitosamente",
-                showConfirmButton: true,
-                timer: 1500,
-            });
-            getBodegas();
-        }
-    }catch (error) {
-        // Notificacion de error al eliminar bodega
+      // Notificacion de exito al eliminar bodega
+      if (response.status === 200) {
         Swal.fire({
-            icon: "error",
-            title: "Error al eliminar bodega",
-            text: "No se pudo eliminar la bodega",
+          icon: "success",
+          title: "Bodega eliminada exitosamente",
+          showConfirmButton: true,
+          timer: 1500,
         });
+        getBodegas();
+      }
+    } catch (error) {
+      // Notificacion de error al eliminar bodega
+      Swal.fire({
+        icon: "error",
+        title: "Error al eliminar bodega",
+        text: "No se pudo eliminar la bodega",
+      });
     }
   }
 
@@ -100,8 +100,8 @@ const gestionarBodegas = () => {
         <tr key={bodega.id}>
           <td>{bodega.nombre}</td>
           <td>
-            <button title="Editar" onClick={()=> editarBodega(bodega)}> <AiFillEdit/> </button>
-            <button title="Eliminar" onClick={()=> eliminarBodega(bodega.id)}> <FaTrash/> </button>
+            <button title="Editar" onClick={() => editarBodega(bodega)}> <AiFillEdit /> </button>
+            <button title="Eliminar" onClick={() => eliminarBodega(bodega.id)}> <FaTrash /> </button>
           </td>
         </tr>
       );
@@ -134,6 +134,12 @@ const gestionarBodegas = () => {
         </table>
         <div className="btn-bodega">
           <button><Link to={"/crear_bodega"}>Crear bodega</Link></button>
+          <div className="btn-traspaso">
+            <button><Link to={"/crear_traspaso"}>Traspaso de bebidas</Link></button>
+          </div>
+          <div className="btn-ingreso">
+            <button><Link to={"/crear_ingreso"}>Ingreso de bebidas</Link></button>
+          </div>
         </div>
       </div>
 
@@ -142,17 +148,17 @@ const gestionarBodegas = () => {
           <div className="modal-bodega--content">
             <h2>Editar bodega</h2>
             <label>Nombre</label>
-            <input 
+            <input
               type="text"
               name="nombre"
               defaultValue={bodegaSeleccionada.nombre}
-              onChange={(e) => setBodegaSeleccionada({...bodegaSeleccionada, nombre: e.target.value})} 
+              onChange={(e) => setBodegaSeleccionada({ ...bodegaSeleccionada, nombre: e.target.value })}
             />
 
             <button className="btn-save-bodega" onClick={onSubmit}>Guardar</button>
-            <button 
+            <button
               className="btn-close-bodega"
-              onClick={() =>{
+              onClick={() => {
                 setBodegaSeleccionada(null);
                 setShowModal(false);
               }}

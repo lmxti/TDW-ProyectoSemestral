@@ -12,6 +12,7 @@ import CrearBodega from "./src/pages/crearBodega"
 import GestionarBodegas from "./src/pages/gestionarBodegas"
 
 import CrearTraspaso from "./src/pages/crearTraspaso"
+import CrearIngreso from "./src/pages/crearIngreso"
 
 import Footer from "./src/components/Footer";
 
@@ -29,6 +30,7 @@ const RouterApp = () => {
         <Route path="/crear_bodega" element={<CrearBodega/>}/>
         <Route path="/gestion_de_bodegas" element={<GestionarBodegas/>}/>
         <Route path="/crear_traspaso" element={<CrearTraspaso/>}/>
+        <Route path="/crear_ingreso" element={<CrearIngreso/>}/>
 
       </Routes>
       <Footer/>
