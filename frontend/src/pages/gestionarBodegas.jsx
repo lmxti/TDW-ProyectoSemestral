@@ -140,6 +140,9 @@ const gestionarBodegas = () => {
           <div className="btn-ingreso">
             <button><Link to={"/crear_ingreso"}>Ingreso de bebidas</Link></button>
           </div>
+          <div className="btn-salida">
+            <button><Link to={"/crear_egreso"}>Egreso de bebidas</Link></button>
+          </div>
         </div>
       </div>
 

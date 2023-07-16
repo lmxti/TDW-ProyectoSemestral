@@ -13,6 +13,7 @@ import GestionarBodegas from "./src/pages/gestionarBodegas"
 
 import CrearTraspaso from "./src/pages/crearTraspaso"
 import CrearIngreso from "./src/pages/crearIngreso"
+import CrearEgreso from "./src/pages/crearEgreso"
 
 import Footer from "./src/components/Footer";
 
@@ -31,6 +32,7 @@ const RouterApp = () => {
         <Route path="/gestion_de_bodegas" element={<GestionarBodegas/>}/>
         <Route path="/crear_traspaso" element={<CrearTraspaso/>}/>
         <Route path="/crear_ingreso" element={<CrearIngreso/>}/>
+        <Route path="/crear_egreso" element={<CrearEgreso/>}/>
 
       </Routes>
       <Footer/>

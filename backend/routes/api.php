@@ -6,6 +6,7 @@ use App\Http\Controllers\BebidaController;
 use App\Http\Controllers\BodegaController;
 use App\Http\Controllers\IngresoController;
 use App\Http\Controllers\TraspasoController;
+use App\Http\Controllers\EgresoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,4 +50,10 @@ Route::prefix('/traspaso')->group(function(){
     Route::post('/create', 'App\Http\Controllers\TraspasoController@createTraspaso');
     Route::get('/viewAll', 'App\Http\Controllers\TraspasoController@viewAllTraspaso');
     Route::delete('/delete', 'App\Http\Controllers\TraspasoController@deleteTraspaso');
+});
+
+Route::prefix('/egreso')->group(function(){
+    Route::post('/create', 'App\Http\Controllers\EgresoController@createEgreso');
+    Route::get('/viewAll', 'App\Http\Controllers\EgresoController@viewAllEgreso');
+    Route::delete('/delete', 'App\Http\Controllers\EgresoController@deleteEgreso');
 });

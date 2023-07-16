@@ -111,6 +111,27 @@
     color: white;
 }
 
+/* ------------------ Boton "Salida de productos" ------------------ */
+.btn-salida > button{
+    background-color: var(--cian);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1em;
+    font-family: var(--fuentePrincipal);
+    cursor: pointer;
+    margin: 0 10px;
+}
+.btn-salida > button:hover{
+    background-color: var(--cianClarito);
+    transition: all 0.3s ease;
+}
+/* Color de texto de <Link> del boton */
+.btn-salida > button > a{
+    color: white;
+}
+
 /*----------------- Modal de edicion ----------------- */
 .modal-bodega {
     position: fixed;
