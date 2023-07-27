@@ -97,6 +97,16 @@ class IngresoController extends Controller
         }
     }
 
+    // Metodo para obtener datos de un registro de "Ingreso" especifico por su [id].
+    public function viewIngreso(IngresoRequest $request){
+        try{
+            $ingreso = Ingreso::find($request->id);
+            return response()->json(["ingreso"=>$ingreso], Response::HTTP_OK);
+        } catch (Exception $e) {
+            return response()->json(["error"=>$e->getMessage()], Response::HTTP_BAD_REQUEST);
+        }
+    }
+
     public function viewAllIngreso(IngresoRequest $request){
         try{
             $ingreso = Ingreso::all();
@@ -108,8 +118,20 @@ class IngresoController extends Controller
 
     public function deleteIngreso(IngresoRequest $request){
         try{
-            $id = $request->id;
-            $ingreso = Ingreso::find($id);
+            $ingreso = Ingreso::find($request->id);
+            $ingreso->bebidas()->detach();
+    
+            $cargamento = json_decode($ingreso->cargamento);
+    
+            foreach($cargamento as $item){
+                $bebida_id = $item->bebida_id;
+                $cantidad = $item->cantidad;
+    
+                DB::table('stock_bodegas')
+                    ->where("bodega_id", $ingreso->bodega_id)
+                    ->where("bebida_id", $bebida_id)
+                    ->decrement('cantidad', $cantidad);
+            }
             $ingreso->delete();
             return response()->json(["ingreso"=>$ingreso], Response::HTTP_OK);
         }catch (Exception $e) {

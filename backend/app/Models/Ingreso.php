@@ -23,20 +23,20 @@ class Ingreso extends Model
         'cargamento',
     ];
 
-    /* Relacion de muchos a uno[N:1] entre el modelo "Ingreso" y el modelo "Bodega". 
+    /*------------------------------------------------------------------------------------------------------------------------
+      Relacion de muchos a uno[N:1] entre el modelo "Ingreso" y el modelo "Bodega". 
         Esto indica que un ingreso puede pertenecer a una bodega y una bodega puede tener varios ingresos.
 
-        (Se establece en la tabla "ingresos" y se especifica la clave externa utilizada en la relacion)
-    */
+        (Se establece en la tabla "ingresos" y se especifica la clave externa utilizada en la relacion)*/
     public function bodega(){
         return $this->belongsTo(Bodega::class, 'bodega_id');
     }
 
-    /* Relacion de muchos a muchos[N:N] entre el modelo "Ingreso" y el modelo "Bebida". 
+    /*------------------------------------------------------------------------------------------------------------------------ 
+      Relacion de muchos a muchos[N:N] entre el modelo "Ingreso" y el modelo "Bebida". 
         Esto indica que un ingreso puede tener varias bebidas y una bebida puede pertener a varios ingresos.
 
-        (Se establece en la tabla pivote "detalle_ingresos" y se especifican las claves externas utilizadas en la relacion)
-    */
+        (Se establece en la tabla pivote "detalle_ingresos" y se especifican las claves externas utilizadas en la relacion)*/
     public function bebidas(){
         return $this->belongsToMany(Bebida::class, 'detalle_ingresos', 'ingreso_id', 'bebida_id')->withPivot('cantidad');
     }

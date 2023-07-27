@@ -65,33 +65,46 @@ class BebidaController extends Controller
         }
     }
 
-    // Metodo para eliminar un registro de "Bebida" utilizando el id de la bebida.
-    public function deleteBebida(BebidaRequest $request){
+    public function deleteBebida(BebidaRequest $request)
+    {
         try {
+            // Asignación de [id] desde el cuerpo de la solicitud HTTP a la variable $bebida.
             $bebida = $request->id;
-
-            $hasDetalleIngresos = DB::table('detalle_ingresos')->where('bebida_id', $bebida)->exists();
-            $hasDetalleTraspaso = DB::table('detalle_traspasos')->where('bebida_id', $bebida)->exists();
-            $hasStockBodegas = DB::table('stock_bodegas')->where('bebida_id', $bebida)->exists();
-
-            if($hasDetalleIngresos){
-                DB::table ('detalle_ingresos')->where('bebida_id', $bebida)->delete();
+            // Asignación de bebidas encontradas en 'stock_bodegas' a la variable $hasStock.
+            $hasStock = DB::table('stock_bodegas')->where('bebida_id', $bebida)->exists();
+    
+            // Verificación de existencias de bebida [id] en 'stock_bodegas'
+            if ($hasStock) {
+                $hasDetalleIngresos = DB::table('detalle_ingresos')->where('bebida_id', $bebida)->exists();
+                $hasDetalleTraspaso = DB::table('detalle_traspasos')->where('bebida_id', $bebida)->exists();
+    
+                // Verificación de existencias de bebida [id] en 'detalle_ingresos'
+                if ($hasDetalleIngresos) {
+                    // Eliminación de registros de 'detalle_ingresos' que contengan el [id] de la bebida.
+                    DB::table('detalle_ingresos')->where('bebida_id', $bebida)->delete();
+                }
+    
+                // Verificación de existencias de bebida [id] en 'detalle_traspasos'
+                if ($hasDetalleTraspaso) {
+                    // Eliminación de registros de 'detalle_traspasos' que contengan el [id] de la bebida.
+                    DB::table('detalle_traspasos')->where('bebida_id', $bebida)->delete();
+                }
+    
+                // Eliminación de registros de 'stock_bodegas' que contengan el [id] de la bebida.
+                DB::table('stock_bodegas')->where('bebida_id', $bebida)->delete();
+    
             }
-            if($hasDetalleTraspaso){
-                DB::table ('detalle_traspasos')->where('bebida_id', $bebida)->delete();
-            }
-            if($hasStockBodegas){
-                DB::table ('stock_bodegas')->where('bebida_id', $bebida)->delete();
-            }
-
+            // Eliminación de la bebida
             Bebida::destroy($bebida);
             // Retorno de respuesta HTTP exitosa.
-            return response()->json(["bebida"=>$bebida], Response::HTTP_OK);
+            return response()->json(["bebida" => $bebida], Response::HTTP_OK);
         } catch (Exception $e) {
             // Retorno de respuesta HTTP fallida.
-            return response()->json(["error"=>$e->getMessage()], Response::HTTP_BAD_REQUEST);
+            return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
         }
     }
+    
+    
 
     // Metodo para ver todos los registros de "Bebida" existentes en la base de datos.
     public function viewAllBebidas(BebidaRequest $request){

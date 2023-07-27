@@ -24,7 +24,8 @@ class Bebida extends Model
         "tamano"
     ];
 
-    /* Relacion de muchos a muchos[N:N] entre el modelo "Bebida" y el modelo "Bodega". 
+    /*------------------------------------------------------------------------------------------------------------------------ 
+      Relacion de muchos a muchos[N:N] entre el modelo "Bebida" y el modelo "Bodega". 
         Esto indica que una bebida puede pertenecer a varias bodegas y una bodega puede tener varias bebidas.
 
         (Se establece en la tabla pivote "stock_bodegas" y se especifican las claves externas utilizadas en la relacion)
@@ -33,7 +34,8 @@ class Bebida extends Model
         return $this->belongsToMany(Bodega::class, 'stock_bodegas', 'bebida_id', 'bodega_id', 'nombre')->withPivot('cantidad');
     }
 
-    /* Relacion de muchos a muchos[N:N] entre el modelo "Bebida" y el modelo "Ingreso".
+    /*------------------------------------------------------------------------------------------------------------------------
+       Relacion de muchos a muchos[N:N] entre el modelo "Bebida" y el modelo "Ingreso".
         Esto indica que una bebida puede estar presente en varios ingresos y un ingreso puede tener varias bebidas.
 
         (Se establece en la tabla pivote "detalle_ingresos" y se especifican las claves externas utilizadas en la relacion)
@@ -42,6 +44,9 @@ class Bebida extends Model
         return $this->belongsToMany(Ingreso::class, 'detalle_ingresos', 'bebida_id', 'ingreso_id', 'nombre')->withPivot('cantidad');
     }
 
+    /*------------------------------------------------------------------------------------------------------------------------ 
+
+    */
     public function traspasos(){
         return $this->belongsToMany(Traspaso::class, 'detalle_traspasos', 'bebida_id', 'traspaso_id', 'nombre')->withPivot('cantidad');
     }

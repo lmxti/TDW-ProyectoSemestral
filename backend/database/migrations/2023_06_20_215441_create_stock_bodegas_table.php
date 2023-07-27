@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('bodega_id')->constrained('bodegas');
             $table->foreignId('bebida_id')->constrained('bebidas');
             $table->string('nombre');
+            
             $table->integer('cantidad');
             $table->timestamps();
         });
