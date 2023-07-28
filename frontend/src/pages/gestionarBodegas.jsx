@@ -134,14 +134,14 @@ const gestionarBodegas = () => {
         </table>
         <div className="btn-bodega">
           <button><Link to={"/crear_bodega"}>Crear bodega</Link></button>
-          <div className="btn-traspaso">
-            <button><Link to={"/crear_traspaso"}>Traspaso de bebidas</Link></button>
-          </div>
           <div className="btn-ingreso">
-            <button><Link to={"/crear_ingreso"}>Ingreso de bebidas</Link></button>
+            <button><Link to={"/crear_ingreso"}>Ingreso</Link></button>
+          </div>
+          <div className="btn-traspaso">
+            <button><Link to={"/crear_traspaso"}>Traspaso</Link></button>
           </div>
           <div className="btn-salida">
-            <button><Link to={"/crear_egreso"}>Egreso de bebidas</Link></button>
+            <button><Link to={"/crear_egreso"}>Egreso</Link></button>
           </div>
         </div>
       </div>

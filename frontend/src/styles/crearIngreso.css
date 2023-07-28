@@ -1,0 +1,104 @@
+@import url(./Global.css);
+
+.crearIngreso-container{
+    width: fit-content;
+    margin: 30px auto;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 25px;
+}
+
+.box-content {
+    width: 600px;
+    height: 450px;
+    background-color: #2d9ab5;
+}
+
+.crearIngreso-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+}
+
+.crearIngreso-content h1{
+    padding: 10px;
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--verdeElectrico);
+    text-shadow: 2px 2px 2px rgba(46, 139, 57, 0.9);
+    margin-bottom: 1.5rem;
+    font-family: var(--fuentePrincipal);
+}
+
+.crearIngreso-form{
+    display: grid;
+    row-gap: 1rem;
+    width: 400px;
+    padding: 10px;
+    font-family: var(--fuentePrincipal);
+    overflow-y: auto;
+    
+}
+
+.crearIngreso-form select,
+.crearIngreso-form input{
+    width: 100%;
+    height: 40px;
+    border: none;
+    outline: none;
+}
+
+.crearIngreso-form input.cantidad{
+    width: 50%;
+    height: 40px;
+    border: none;
+    outline: none;
+}
+
+.item{
+    display: flex;
+}
+
+.crearIngreso-form Button.btn-add-bebida{
+    width: 100%;
+    height: 40px;
+    margin-top: 1rem;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    background-color: var(--verdeElectrico);
+    color: var(--blanco);
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.crearIngreso-form Button.btn-quitar{
+    border: none;
+    outline: none;
+}
+.crearIngreso-form Button.btn-quitar:hover{
+    transition: all 0.3s ease;
+    background-color: red;
+}
+
+.crearIngreso-btn-submit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2d9ab5;
+    padding: 10px 0;
+}
+
+.crearIngreso-btn-submit Button{
+    width: 200px;
+    height: 40px;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    background-color: var(--verdeElectrico);
+    color: var(--blanco);
+    font-size: 1.2rem;
+    cursor: pointer;
+}
