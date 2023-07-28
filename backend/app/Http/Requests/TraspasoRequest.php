@@ -30,7 +30,7 @@ class TraspasoRequest extends FormRequest
                 'bodega_destino_id' => 'required|integer',
                 'cargamento' => 'required|array',
                 'cargamento.*.bebida_id' => 'required|integer',
-                'cargamento.*.bebida_nombre' => 'required|string',
+                'cargamento.*.bebida_nombre' => 'required|string|exists:bebidas,nombre',
                 'cargamento.*.cantidad' => 'required|integer',
             ];
         }elseif($this->isMethod('delete')){

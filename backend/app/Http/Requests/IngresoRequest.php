@@ -29,7 +29,7 @@ class IngresoRequest extends FormRequest
                 'bodega_id' => 'required|integer',
                 'cargamento' => 'required|array',
                 'cargamento.*.bebida_id' => 'required|integer',
-                'cargamento.*.bebida_nombre' => 'required|alpha',
+                'cargamento.*.bebida_nombre' => 'required|alpha|exists:bebidas,nombre',
                 'cargamento.*.cantidad' => 'required|integer',
             ];
         }elseif($this->isMethod('delete')){
