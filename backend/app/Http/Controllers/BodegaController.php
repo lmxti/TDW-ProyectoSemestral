@@ -109,7 +109,7 @@ class BodegaController extends Controller
                 $stockBodega = DB::table('stock_bodegas')
                     ->select('bodega_id')
                     ->where('bodega_id', '=', $bodega->id)
-                    ->each->delete();
+                    ->delete();
 
                 // Eliminacion del registro de "Bodega" en la base de datos.
                 $bodega->delete();
